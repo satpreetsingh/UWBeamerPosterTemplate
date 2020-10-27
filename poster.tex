@@ -1,0 +1,265 @@
+% Gemini theme
+% https://github.com/anishathalye/gemini
+%
+% We try to keep this Overleaf template in sync with the canonical source on
+% GitHub, but it's recommended that you obtain the template directly from
+% GitHub to ensure that you are using the latest version.
+
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+\usepackage{lipsum}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% 48 inches in centimeters = 122
+% 36 inches in centimeters = 92
+% \usepackage[size=custom,width=122,height=92,scale=1.0]{beamerposter}
+
+% A2 is 42 x 59.4
+% \usepackage[size=custom,width=42,height=59.4,scale=1.0]{beamerposter}
+
+% 2000x1300 px @ 72 dpi == 28 in x 18 in ::3X:: 56 x 36 
+\usepackage[size=custom,width=84,height=54,scale=1.0]{beamerposter}
+
+% \usetheme{mit}
+% \usecolortheme{mit}
+% \usetheme{gemini}
+% \usecolortheme{gemini}
+\usetheme{uw}
+\usecolortheme{uw}
+
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes}
+\usepackage{pgfplots}
+
+% https://tex.stackexchange.com/questions/157389/how-to-center-column-values-in-a-table
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{caption} % for caption*
+% \usepackage[
+% backend=biber,
+% style=alphabetic,
+% citestyle=authoryear
+% ]{biblatex}
+
+% \usepackage[style=nature,maxnames=1,uniquelist=false]{biblatex}
+
+
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\colwidth}{0.30\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+% ====================
+% Title
+% ====================
+
+\title{
+Some very bright ideas
+}
+
+
+
+\author{Industrious Grad-Student \inst{1} 
+% [satsingh@uw.edu]
+\and 
+Lucky Undergrad \inst{2} 
+\and 
+Supervising Advisor \inst{1}
+}
+
+\institute[shortinst]{
+\inst{1} University of Washington, Seattle, WA 98195 
+\samelineand 
+\inst{2} Well Paying Co.
+\quad Correspondence: \href{mailto:husky@uw.edu}{husky@uw.edu}
+}
+
+\begin{document}
+\addtobeamertemplate{headline}{} 
+{\begin{tikzpicture}[remember picture, overlay]
+     % UW Logo on top left (West)
+     \node [anchor=north west, inner sep=1.5cm, xshift=+3cm]  at (current page.north west)
+     {\includegraphics[height=5.5cm]{Signature_Stacked_White.png}};
+     
+     % UNR Logo on top right (East)
+     \node [anchor=north east, inner sep=2cm, xshift=-2cm]  at (current page.north east)
+     {\includegraphics[height=5cm]{CC.png}};
+\end{tikzpicture}}
+
+
+\begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+\begin{block}{Overview}
+\lipsum[5]
+\end{block}
+
+
+% #### Question ####
+\begin{center}
+\setbeamercolor{postit}{fg=black,bg=lightgray}
+\begin{beamercolorbox}[sep=1em, rounded=true, center]{postit}
+\textbf{Question: 
+\lipsum[2]
+} 
+\end{beamercolorbox}
+\end{center}
+
+\vspace{-0.5cm}
+\begin{block}{First bright idea} 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{husky1.jpg}
+    \captionsetup{justification=centering}
+    \caption{ A very good boy }
+    \label{husky1}
+\end{figure}
+\end{block}
+
+\end{column}
+\separatorcolumn
+
+% ############ COLUMN 2 ############ 
+
+\begin{column}{\colwidth}
+
+\begin{block}{Surprising result} 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\linewidth]{husky2.jpg}
+    \captionsetup{justification=centering}
+    \caption{You did what using \LaTeX !?}
+\label{fig_pomdp}
+\end{figure}
+\end{block}    
+
+\vspace{-1.2cm}
+\begin{block}{Second bright idea} 
+\lipsum[8]
+\end{block}
+
+
+\end{column}
+\separatorcolumn % Middle column margin
+
+%%%%%%%%%%%%%%%%%%%%%%% COLUMN 3 %%%%%%%%%%%%%%%%%%%%%%% 
+\begin{column}{\colwidth}
+
+\begin{block}{Future plans}
+\lipsum[5]
+\end{block}
+
+\begin{figure}
+    \centering
+
+\begin{tikzpicture}
+
+	\node (1) [draw, minimum width=15em, minimum height=2em, very thick, rounded rectangle] {};
+	\node (l1) [left=0em of 1] {$\vec{x}$};
+		
+	\node (2) [above=3.9em of 1, draw, fill=lightgray, minimum width=9em,very thick, minimum height=2em, rounded rectangle] {};
+	\node (l2) [left=0em of 2] {$\vec{h}_1$};
+	\node (3) [above=3.9em of 2, draw, fill=lightgray, minimum width=9em,very thick, minimum height=2em, rounded rectangle] {};
+	\node (l3) [left=0em of 3] {$\vec{h}_2$};
+		
+	\node[circle, draw, thick] (A1) {};
+	\node[circle, draw, thick, right=0.5em of A1] (A2) {};
+	\node[circle, draw, thick, right=0.5em of A2] (A3) {};
+	\node[circle, draw, thick, right=0.5em of A3] (A4) {};
+	\node[circle, draw, thick, right=0.5em of A4] (A5) {};
+	\node[circle, draw, thick, left=0.5em of A1] (A6) {};
+	\node[circle, draw, thick, left=0.5em of A6] (A7) {};
+	\node[circle, draw, thick, left=0.5em of A7] (A8) {};
+	\node[circle, draw, thick, left=0.5em of A8] (A9) {};
+		
+	\node[circle, draw, fill=white, thick, above=5em of A1] (B1) {};
+	\node[circle, draw, fill=white, thick, right=0.5em of B1] (B2) {};
+	\node[circle, draw, fill=white, thick, right=0.5em of B2] (B3) {};
+	\node[circle, draw, fill=white, thick, left=0.5em of B1] (B4) {};
+	\node[circle, draw, fill=white, thick, left=0.5em of B4] (B5) {};
+		
+	\node[circle, draw, fill=white, thick, above=5em of A1] (B1) {};
+	\node[circle, draw, fill=white, thick, right=0.5em of B1] (B2) {};
+	\node[circle, draw, fill=white, thick, right=0.5em of B2] (B3) {};
+	\node[circle, draw, fill=white, thick, left=0.5em of B1] (B4) {};
+	\node[circle, draw, fill=white, thick, left=0.5em of B4] (B5) {};
+		
+	\node[circle, draw, fill=white, thick, above=5em of A1] (B1) {};
+	\node[circle, draw, fill=white, thick, right=0.5em of B1] (B2) {};
+	\node[circle, draw, fill=white, thick, right=0.5em of B2] (B3) {};
+	\node[circle, draw, fill=white, thick, left=0.5em of B1] (B4) {};
+	\node[circle, draw, fill=white, thick, left=0.5em of B4] (B5) {};
+		
+	\node[circle, draw, fill=white, thick, above=5em of B1] (C1) {};
+	\node[circle, draw, fill=white, thick, right=0.5em of C1] (C2) {};
+	\node[circle, draw, fill=white, thick, right=0.5em of C2] (C3) {};
+	\node[circle, draw, fill=white, thick, left=0.5em of C1] (C4) {};
+	\node[circle, draw, fill=white, thick, left=0.5em of C4] (C5) {};
+		
+	\foreach \x in {1,...,9}
+		\foreach \y in {1,...,5}
+			\draw[-stealth, thick] (A\x) -- (B\y);
+				
+	\foreach \x in {1,...,5}
+		\foreach \y in {1,...,5}
+			\draw[stealth-stealth, thick] (B\x) -- (C\y);
+				
+	\draw[-stealth, thick] (A5) -- node[right] {${\bf W}_1$} (B3);
+	\draw[stealth-stealth, thick] (B3) -- node[right] {${\bf W}_2$} (C3);
+	
+\end{tikzpicture}
+
+    \captionsetup{justification=centering}
+    \caption{Buzzword}
+\label{fig_pomdp}
+\end{figure}
+
+
+
+\vspace{+0.7cm}
+\begin{block}{References}
+\begin{tabular}{l l}
+1. Author et al, 2020   & 4. Self citation, 2015  \\
+2. Author et al, 2016   & 5. Self citation, 2018 \\
+3. Author et al, 2018   & 6. Author et al, 2008\\
+7. Another sneaky self-citation, 2006   &  \\
+\end{tabular}
+\end{block}
+
+% \vspace{+1.0cm}
+\begin{block}{Acknowledgements}
+\small{
+I modified the repository \url{https://github.com/anishathalye/gemini} to make this, and used stock images from Shutterstock.
+}
+\end{block}
+
+
+
+\end{column}
+\separatorcolumn % Right Margin
+
+\end{columns}
+
+\end{frame}
+
+\end{document}
